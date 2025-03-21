@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symmetric Matrix Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(120deg, #f093fb, #f5576c);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background: #f5576c;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #d6455a;
+        }
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Check if a Matrix is Symmetric</h2>
+        <label>Enter matrix (space-separated, new row in a new line):</label>
+        <textarea id="matrixInput" rows="5"></textarea>
+        <button onclick="checkSymmetry()">Check Symmetry</button>
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        function checkSymmetry() {
+            let input = document.getElementById("matrixInput").value.trim();
+            let rows = input.split("\n");
+            let matrix = rows.map(row => row.split(" ").map(Number));
+            let n = matrix.length;
+
+            for (let row of matrix) {
+                if (row.length !== n) {
+                    document.getElementById("result").textContent = "Matrix is not square!";
+                    document.getElementById("result").style.color = "red";
+                    return;
+                }
+            }
+
+            let isSymmetric = true;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    if (matrix[i][j] !== matrix[j][i]) {
+                        isSymmetric = false;
+                        break;
+                    }
+                }
+            }
+
+            document.getElementById("result").textContent = isSymmetric 
+                ? "The matrix is symmetric!" 
+                : "The matrix is NOT symmetric!";
+            document.getElementById("result").style.color = isSymmetric ? "green" : "red";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Hover</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #content{
+            padding: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        img{
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h2 id = "text">Hover Over Me</h2>
+    <div id = "content">
+        <img id = "image" src="retro.jpg" alt="Image">
+    </div>
+
+    <script>
+        const textElement = document.getElementById("text");
+        const imageElement = document.getElementById("image");
+
+        document.getElementById("content").addEventListener("mouseover", function(){
+            textElement.textContent = "Mouse Over Me";
+            imageElement.src = "retro2.jpg" 
+        });
+    </script>
+
+</body>
+</html>
