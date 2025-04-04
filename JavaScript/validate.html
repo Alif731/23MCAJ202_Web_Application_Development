@@ -118,7 +118,7 @@
             }
 
             // Email validation
-            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            const emailPattern = /^[a-z]+@[^ ]+\.[a-z]{2,3}$/;
             if (email === "") {
                 document.getElementById("emailError").textContent = "Email is required";
                 isValid = false;
