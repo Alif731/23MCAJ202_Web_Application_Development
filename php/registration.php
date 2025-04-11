@@ -80,7 +80,7 @@
 
         if (empty($_POST["email"])) {
             $emailErr = "Email is required";
-        } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        } elseif (!preg_match("/^[a-z]+@[^ ]+\.[a-z]{2,3}$/", $_POST["email"])) {
             $emailErr = "Invalid email format";
         } else {
             $email = htmlspecialchars($_POST["email"]);

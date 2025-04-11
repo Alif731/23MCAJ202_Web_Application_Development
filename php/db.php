@@ -51,10 +51,10 @@
                 <th>Role</th>
             </tr>
             <?php
-            // Connect to SQLite database
+            
             $db = new SQLite3('cricket.db');
 
-            // Query to get users
+            
             $results = $db->query("SELECT id, name, role FROM players");
 
             while ($row = $results->fetchArray(SQLITE3_ASSOC)) {

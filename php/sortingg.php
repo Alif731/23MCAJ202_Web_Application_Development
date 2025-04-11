@@ -35,7 +35,7 @@
         <h2>Original Array</h2>
         <pre>
             <?php
-            // Array of student names
+           
             $students = array("John", "Alice", "Michael", "Sophie", "David");
             print_r($students);
             ?>
